@@ -1,0 +1,23 @@
+{
+  "name": "tennis-game-kata",
+  "version": "1.0.0",
+  "description": "## About this Kata",
+  "main": "tennisGame.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crnndavid/TennisGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crnndavid/TennisGame/issues"
+  },
+  "homepage": "https://github.com/crnndavid/TennisGame#readme",
+  "devDependencies": {
+    "jest": "^29.1.2"
+  }
+}
