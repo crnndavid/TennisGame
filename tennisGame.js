@@ -6,11 +6,7 @@ const playPoint = () => {
 };
 
 const addPointToScore = (point) => {
-  if (point === 0) {
-    return scorePlayerOne++;
-  } else {
-    return scorePlayerTwo++;
-  }
+  return point === 0 ? scorePlayerOne++ : scorePlayerTwo++;
 };
 
 const replaceScoreByValue = (score) => {
@@ -40,7 +36,6 @@ const hasWinner = (score1, score2) => {
 };
 const playGame = () => {
   console.log(" --------- Game Start ---------");
-
   let keepPlaying = true;
   while (keepPlaying) {
     const point = playPoint();
@@ -74,7 +69,6 @@ console.log(playGame());
 
 module.exports = {
   playPoint,
-  addPointToScore,
   replaceScoreByValue,
   isDeuce,
   hasAdvantage,
