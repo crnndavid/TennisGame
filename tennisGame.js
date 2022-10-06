@@ -23,8 +23,13 @@ const replaceScoreByValue = (score) => {
   return tennisScore;
 };
 
+const isDeuce = (score1, score2) => {
+  return score1 >= 3 && score1 === score2;
+};
+
 module.exports = {
   playPoint,
   addPointToScore,
   replaceScoreByValue,
+  isDeuce,
 };
