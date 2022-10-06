@@ -13,9 +13,18 @@ const addPointToScore = (point) => {
   }
 };
 
+const replaceScoreByValue = (score) => {
+  let tennisScore;
+  if (score == 0) tennisScore = "Love";
+  if (score == 1) tennisScore = "15";
+  if (score == 2) tennisScore = "30";
+  if (score == 3) tennisScore = "40";
+
+  return tennisScore;
+};
+
 module.exports = {
   playPoint,
   addPointToScore,
-  scorePlayerOne,
-  scorePlayerTwo,
+  replaceScoreByValue,
 };
