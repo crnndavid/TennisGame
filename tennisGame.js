@@ -40,17 +40,38 @@ const hasWinner = (score1, score2) => {
 };
 const playGame = () => {
   console.log(" --------- Game Start ---------");
+
   let keepPlaying = true;
   while (keepPlaying) {
     const point = playPoint();
     addPointToScore(point);
+
     let tennisScoreP1 = replaceScoreByValue(scorePlayerOne);
     let tennisScoreP2 = replaceScoreByValue(scorePlayerTwo);
-    let scoreGlobal = `${tennisScoreP1} = ${tennisScoreP2}`;
+    let scoreGlobal = `${tennisScoreP1} - ${tennisScoreP2}`;
 
-    //     if(hasWinner())
+    if (hasWinner(scorePlayerOne, scorePlayerTwo)) {
+      scorePlayerOne > scorePlayerTwo
+        ? (scoreGlobal = " --------- Player 1 wins 🎾 ---------")
+        : (scoreGlobal = " --------- Player 2 wins 🎾 ---------");
+      keepPlaying = false;
+    }
+
+    if (isDeuce(scorePlayerOne, scorePlayerTwo)) {
+      scoreGlobal = "Deuce";
+    }
+    if (hasAdvantage(scorePlayerOne, scorePlayerTwo)) {
+      scorePlayerOne > scorePlayerTwo
+        ? (scoreGlobal = "Advantage Player 1")
+        : (scoreGlobal = "Advantage Player 2");
+    }
+    console.log(scoreGlobal);
   }
+  return " --------- Game. Set and Match ---------";
 };
+
+console.log(playGame());
+
 module.exports = {
   playPoint,
   addPointToScore,
