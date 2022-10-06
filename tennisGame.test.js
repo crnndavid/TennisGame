@@ -1,7 +1,7 @@
 const { describe, test, expect } = require("@jest/globals");
+
 const {
   playPoint,
-  addPointToScore,
   replaceScoreByValue,
   isDeuce,
   hasAdvantage,
@@ -20,19 +20,6 @@ describe("Check if Play Point return  0 or 1", () => {
     expect(value.length).toEqual(1);
   });
 });
-
-// describe("Check if point is attributed to score", () => {
-//   test("should add 1 to score player 1 ", () => {
-//     let scorePlayerOne = 0;
-//     let scorePlayerTwo = 0;
-//     expect(addPointToScore(0)).toBe((scorePlayerOne = 1));
-//   });
-//   test("should add 1 to score player 2", () => {
-//     let scorePlayerTwo = 0;
-//     let scorePlayerOne = 0;
-//     expect(addPointToScore(1)).toBe((scorePlayerTwo = 1));
-//   });
-// });
 
 describe("Check if score is replaced", () => {
   test("should return Love", () => {
