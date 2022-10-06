@@ -5,6 +5,7 @@ const {
   replaceScoreByValue,
   isDeuce,
   hasAdvantage,
+  hasWinner,
 } = require("./tennisGame");
 
 describe("Check if Play Point return  0 or 1", () => {
@@ -20,17 +21,18 @@ describe("Check if Play Point return  0 or 1", () => {
   });
 });
 
-describe("Check if point is attributed to score", () => {
-  test("should add 1 to score player 1 ", () => {
-    let scorePlayerOne = 0;
-
-    expect(addPointToScore(0)).toBe(scorePlayerOne++);
-  });
-  test("should add 1 to score player 2", () => {
-    let scorePlayerTwo = 0;
-    expect(addPointToScore(1)).toBe(scorePlayerTwo++);
-  });
-});
+// describe("Check if point is attributed to score", () => {
+//   test("should add 1 to score player 1 ", () => {
+//     let scorePlayerOne = 0;
+//     let scorePlayerTwo = 0;
+//     expect(addPointToScore(0)).toBe((scorePlayerOne = 1));
+//   });
+//   test("should add 1 to score player 2", () => {
+//     let scorePlayerTwo = 0;
+//     let scorePlayerOne = 0;
+//     expect(addPointToScore(1)).toBe((scorePlayerTwo = 1));
+//   });
+// });
 
 describe("Check if score is replaced", () => {
   test("should return Love", () => {
@@ -53,7 +55,7 @@ describe("Check equality", () => {
   test("should not be Deuce ", () => {
     let score1 = 4;
     let score2 = 1;
-    expect(isDeuce()).toBeFalsy();
+    expect(isDeuce(score1, score2)).toBeFalsy();
   });
 });
 
@@ -72,5 +74,23 @@ describe("Check if a player has advantage", () => {
     let score1 = 2;
     let score2 = 2;
     expect(hasAdvantage(score1, score2)).toBeFalsy();
+  });
+});
+
+describe("Check if a player has won", () => {
+  test("should be player 1  ", () => {
+    const score1 = 4;
+    const score2 = 1;
+    expect(hasWinner(score1, score2)).toBeTruthy();
+  });
+  test("should be player 1  ", () => {
+    const score1 = 6;
+    const score2 = 4;
+    expect(hasWinner(score1, score2)).toBeTruthy();
+  });
+  test("should be player 1  ", () => {
+    const score1 = 2;
+    const score2 = 1;
+    expect(hasWinner(score1, score2)).toBeFalsy();
   });
 });
