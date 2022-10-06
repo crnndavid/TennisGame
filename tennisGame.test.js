@@ -4,6 +4,7 @@ const {
   addPointToScore,
   replaceScoreByValue,
   isDeuce,
+  hasAdvantage,
 } = require("./tennisGame");
 
 describe("Check if Play Point return  0 or 1", () => {
@@ -53,5 +54,23 @@ describe("Check equality", () => {
     let score1 = 4;
     let score2 = 1;
     expect(isDeuce()).toBeFalsy();
+  });
+});
+
+describe("Check if a player has advantage", () => {
+  test("should be advantage for player 1", () => {
+    let score1 = 4;
+    let score2 = 3;
+    expect(hasAdvantage(score1, score2)).toBeTruthy();
+  });
+  test("should be advantage for player 2", () => {
+    let score1 = 4;
+    let score2 = 5;
+    expect(hasAdvantage(score1, score2)).toBeTruthy();
+  });
+  test("should not be advantage for any player ", () => {
+    let score1 = 2;
+    let score2 = 2;
+    expect(hasAdvantage(score1, score2)).toBeFalsy();
   });
 });

@@ -27,9 +27,15 @@ const isDeuce = (score1, score2) => {
   return score1 >= 3 && score1 === score2;
 };
 
+const hasAdvantage = (score1, score2) => {
+  if (score1 >= 4 && score1 === score2 + 1) return true;
+  if (score2 >= 4 && score2 === score1 + 1) return true;
+  return false;
+};
 module.exports = {
   playPoint,
   addPointToScore,
   replaceScoreByValue,
   isDeuce,
+  hasAdvantage,
 };
