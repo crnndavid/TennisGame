@@ -3,6 +3,7 @@ const {
   playPoint,
   addPointToScore,
   replaceScoreByValue,
+  isDeuce,
 } = require("./tennisGame");
 
 describe("Check if Play Point return  0 or 1", () => {
@@ -39,5 +40,18 @@ describe("Check if score is replaced", () => {
   });
   test("should return 40", () => {
     expect(replaceScoreByValue(3)).toBe("40");
+  });
+});
+
+describe("Check equality", () => {
+  test("should be Deuce ", () => {
+    let score1 = 3;
+    let score2 = 3;
+    expect(isDeuce(score1, score2)).toBeTruthy();
+  });
+  test("should not be Deuce ", () => {
+    let score1 = 4;
+    let score2 = 1;
+    expect(isDeuce()).toBeFalsy();
   });
 });
